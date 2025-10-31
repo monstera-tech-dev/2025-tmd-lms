@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { User, Mail, Phone, MapPin, Calendar, Edit3, Save, X, Award, BookOpen, Clock, Star } from 'lucide-react'
+import { User, Mail, Phone, MapPin, Edit3, Save, X, Award, BookOpen, Clock } from 'lucide-react'
 import Card from '../../components/ui/Card'
 import Button from '../../components/ui/Button'
 import Input from '../../components/ui/Input'
@@ -17,15 +17,6 @@ export default function Profile() {
     languages: ['C/C++', 'PYTHON', 'JAVASCRIPT']
   })
 
-  const [stats] = useState({
-    totalCourses: 5,
-    completedCourses: 3,
-    totalHours: 120,
-    averageGrade: 4.2,
-    certificates: 2,
-    joinedDate: '2023-03-15'
-  })
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -33,7 +24,6 @@ export default function Profile() {
 
   const handleSave = () => {
     // 실제로는 API 호출
-    console.log('프로필 저장:', formData)
     setIsEditing(false)
   }
 
@@ -58,7 +48,7 @@ export default function Profile() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-base-content">마이페이지</h1>
-          <p className="text-base-content/70 mt-2">프로필 및 학습 통계를 관리하세요</p>
+          <p className="text-base-content/70 mt-2">프로필 정보를 관리하세요</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -82,37 +72,6 @@ export default function Profile() {
                 <div className="flex items-center justify-center">
                   <MapPin className="h-4 w-4 mr-2" />
                   {formData.address}
-                </div>
-              </div>
-            </Card>
-
-            {/* Learning Statistics */}
-            <Card className="p-6 mt-6">
-              <h3 className="text-lg font-semibold text-base-content mb-4">학습 통계</h3>
-              <div className="space-y-3 text-neutral-700">
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center"><BookOpen className="h-4 w-4 mr-2 text-primary" /> 총 강좌 수</span>
-                  <span className="font-medium">{stats.totalCourses}개</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center"><Award className="h-4 w-4 mr-2 text-success" /> 완료 강좌</span>
-                  <span className="font-medium">{stats.completedCourses}개</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center"><Clock className="h-4 w-4 mr-2 text-warning" /> 총 학습 시간</span>
-                  <span className="font-medium">{stats.totalHours}시간</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center"><Star className="h-4 w-4 mr-2 text-yellow-500" /> 평균 성적</span>
-                  <span className="font-medium">{stats.averageGrade} / 5.0</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center"><Award className="h-4 w-4 mr-2 text-secondary" /> 수료증</span>
-                  <span className="font-medium">{stats.certificates}개</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="flex items-center"><Calendar className="h-4 w-4 mr-2 text-neutral-500" /> 가입일</span>
-                  <span className="font-medium">{stats.joinedDate}</span>
                 </div>
               </div>
             </Card>
