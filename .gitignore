@@ -41,6 +41,9 @@ lerna-debug.log*
 # Public assets (large files)
 public/
 
+# Scripts (utility scripts - not needed for sharing)
+scripts/
+
 # Documentation (keep only README.md)
 docs/
 *.md
@@ -60,7 +63,6 @@ docs/
 # - .gitignore
 # - apps/ (backend)
 # - src/ (frontend)
-# - scripts/ (utility scripts)
 
 # Exclude other root files/folders that are not needed
 # (everything else is already covered above)
