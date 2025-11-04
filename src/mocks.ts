@@ -106,7 +106,7 @@ export const mockCoInstructors = [
 ]
 
 // Helper functions
-export const authenticateUser = (username: string, password: string): User | null => {
+export const authenticateUser = (email: string, password: string): User | null => {
   // Mock authentication - 실제로는 API 호출
   const mockUsers = [
     { id: '1', username: 'instructor1', password: 'pass1234', email: 'instructor@example.com', role: 'instructor' as const, name: '김강사' },
@@ -116,7 +116,7 @@ export const authenticateUser = (username: string, password: string): User | nul
   ];
 
   const user = mockUsers.find(
-    u => u.username === username && u.password === password
+    u => u.email === email && u.password === password
   );
   return user || null;
 };

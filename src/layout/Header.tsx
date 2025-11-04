@@ -159,8 +159,8 @@ export default function Header() {
                       navigate('/student/dashboard')
                   }
                 } else {
-                  // 로그인되지 않은 사용자는 수강생 대시보드로
-                  navigate('/student/dashboard')
+                  // 로그인되지 않은 사용자는 환영 페이지로
+                  navigate('/welcome')
                 }
               }}
               className="flex items-center space-x-3 group"

@@ -15,6 +15,7 @@ import SignupInstructor from "./pages/auth/SignupInstructor";
 import SignupPending from "./pages/auth/SignupPending";
 
 // Student pages
+import WelcomePage from "./pages/student/WelcomePage";
 import StudentDashboard from "./pages/student/Dashboard";
 import CourseDetail from "./pages/student/CourseDetail";
 import Learning from "./pages/student/Learning";
@@ -28,7 +29,6 @@ import Calendar from "./pages/student/Calendar";
 // Instructor pages
 import InstructorDashboard from "./pages/instructor/Dashboard";
 import CourseList from "./pages/instructor/CourseList";
-import CreateCourse from "./pages/instructor/CreateCourse";
 import CourseIntroduction from "./pages/instructor/CourseIntroduction";
 import CourseHome from "./pages/instructor/CourseHome";
 import EditCurriculum from "./pages/instructor/EditCurriculum";
@@ -44,13 +44,13 @@ import QuestionManagement from "./pages/instructor/QuestionManagement";
 import NoticeManagement from "./pages/instructor/NoticeManagement";
 import NoticeEditor from "./pages/instructor/NoticeEditor";
 import InstructorProfile from "./pages/instructor/InstructorProfile";
-import CoursePreview from "./pages/instructor/CoursePreview";
 import RealtimeProctoring from "./pages/instructor/RealtimeProctoring.tsx";
 import ResultsAnalysis from "./pages/instructor/ResultsAnalysis.tsx";
 import ExamDetail from "./pages/instructor/ExamDetail";
 import GradeReport from "./pages/instructor/GradeReport.tsx";
 import ReviewManagement from "./pages/instructor/ReviewManagement.tsx";
 import AssignmentManagement from "./pages/instructor/AssignmentManagement";
+import AssignmentSubmissions from "./pages/instructor/AssignmentSubmissions";
 import ActivityHistory from "./pages/instructor/ActivityHistory.tsx";
 import InviteStudents from "./pages/instructor/InviteStudents";
 import InviteByEmail from "./pages/instructor/InviteByEmail";
@@ -85,6 +85,7 @@ export default function App() {
         </CourseCreationProvider>
       }>
         {/* Student */}
+        <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/student/dashboard" element={<StudentDashboard />} />
         <Route path="/student/course/:id" element={<CourseDetail />} />
         <Route path="/student/learning/:id" element={<Learning />} />
@@ -99,7 +100,6 @@ export default function App() {
              <Route path="/instructor/dashboard" element={<InstructorDashboard />} />
              <Route path="/instructor/courses" element={<CourseList />} />
              <Route path="/instructor/create" element={<CourseIntroduction />} />
-             <Route path="/instructor/create/introduction" element={<Navigate to="/instructor/create" replace />} />
              <Route path="/instructor/course/:id/home" element={<CourseHome />} />
              <Route path="/instructor/course/:id/edit" element={<EditCurriculum />} />
              <Route path="/instructor/course/:id/info" element={<CourseInfoEdit />} />
@@ -113,6 +113,7 @@ export default function App() {
              <Route path="/instructor/course/:id/co-instructors" element={<CoInstructorSettings />} />
              <Route path="/instructor/course/:id/exams" element={<ExamManagement />} />
              <Route path="/instructor/course/:id/assignments" element={<AssignmentManagement />} />
+             <Route path="/instructor/course/:id/assignment-submissions" element={<AssignmentSubmissions />} />
              <Route path="/instructor/course/:id/exam/:examId" element={<ExamDetail />} />
              <Route path="/instructor/course/:id/create-exam" element={<CreateExam />} />
              <Route path="/instructor/course/:id/question-management" element={<QuestionManagement />} />
@@ -134,7 +135,7 @@ export default function App() {
         <Route path="/admin/instructor-approval" element={<InstructorApproval />} />
 
         {/* Defaults */}
-        <Route path="/" element={<Navigate to="/student/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/welcome" replace />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
